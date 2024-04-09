@@ -1,0 +1,37 @@
+# Duffing System Under Digital PD Control
+
+# System Parameters
+par a=0.25, c=0.2, epsilon=0.1
+
+# PD Gains
+par kp=1, kd=0.5
+
+# Sampling Time
+par ts=0.02
+
+# Define Delayed Terms
+TimeDelay(t)=t-ts*(flr(t/ts)-1)
+y=delay(x,TimeDelay(t))
+z=delay(v,TimeDelay(t))
+
+
+# Define Input
+F=-kp*y-kd*z
+
+# Define Duffing Equations
+dx/dt=v
+dv/dt=a*x*(1- epsilon * x^2)-c*v+F
+
+# Delayed x & v
+aux xd=y
+aux vd=z
+aux tau=TimeDelay(t)
+
+# Delay Relevant Conditions
+x(0)=1
+v(0)=0
+
+@ xplot=x, yplot=v
+@ dt=0.0001, total=20
+@ delay=10
+done

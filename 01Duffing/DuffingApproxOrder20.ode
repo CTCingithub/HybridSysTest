@@ -1,0 +1,48 @@
+# Duffing System Under Digital PD Control
+# Approximated to 20th Order
+
+# System Parameters
+par a=0.25, c=0.2, epsilon=0.1
+
+# PD Gains
+par kp=1, kd=0.5
+
+# Sampling Time
+par ts=0.02
+
+# Define Delayed Terms
+OmegaS=2*Pi/ts
+DelayN(n,t)=1/n*sin(n*OmegaS*t)
+
+TimeDelay(t)=ts*(1.5-1/Pi*( \
+    DelayN(1,t) + DelayN(2,t) + DelayN(3,t) + \
+    DelayN(4,t) + DelayN(5,t) + DelayN(6,t) + \
+    DelayN(7,t) + DelayN(8,t) + DelayN(9,t) + \
+    DelayN(10,t) + DelayN(11,t) + DelayN(12,t) + \
+    DelayN(13,t) + DelayN(14,t) + DelayN(15,t) + \
+    DelayN(16,t) + DelayN(17,t) + DelayN(18,t) + \
+    DelayN(19,t) + DelayN(20,t) \
+    ))
+y=delay(x,TimeDelay(t))
+z=delay(v,TimeDelay(t))
+
+# Define Input
+F=-kp*y-kd*z
+
+# Define Duffing Equations
+dx/dt=v
+dv/dt=a*x*(1- epsilon * x^2)-c*v+F
+
+# Delayed x & v
+aux xd=y
+aux vd=z
+aux tau=TimeDelay(t)
+
+# Delay Relevant Conditions
+x(0)=1
+v(0)=0
+
+@ xplot=x, yplot=v
+@ dt=0.0001, total=20
+@ delay=10
+done
