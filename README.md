@@ -2,7 +2,7 @@
  * @Author: CTC 2801320287@qq.com
  * @Date: 2024-03-26 10:56:14
  * @LastEditors: CTC 2801320287@qq.com
- * @LastEditTime: 2024-04-25 11:04:33
+ * @LastEditTime: 2024-04-25 23:11:34
  * @Description: 
  * 
  * Copyright (c) 2024 by ${git_name_email}, All Rights Reserved. 
@@ -87,7 +87,7 @@ $$
     \frac{d x}{d t} = D_0 X_0 + \varepsilon \left( D_0 X_1 + D_1 X_0 \right) + \varepsilon^2 \left( D_0 X_2 + D_1 X_1 + D_2 X_0 \right) + \cdots, \\
     \begin{aligned}
         \frac{d^{2} x}{d t^{2}} &= \left( D_{0}^{2} + \varepsilon \left( 2 D_{0} D_{1} \right) + \varepsilon^{2} \left( 2 D_{0} D_{2} + D_{1}^{2} \right) + \cdots \right) \left( X_0 + \varepsilon X_1 + \varepsilon^2 X_2 + \cdots \right) \\
-        &= D_{0}^{2} X_{0} + \varepsilon \left( 2 D_{0} D_{1} X_{0} + D_{0}^{2} X_{0} \right) + \varepsilon^{2} \left( 2 D_{0} D_{2} X_{0} + 2 D_{1} D_{0} X_{1} + D_{1}^{2} X_{0} \right) + \cdots.
+        &= D_{0}^{2} X_{0} + \varepsilon \left( 2 D_{0} D_{1} X_{0} + D_{0}^{2} X_{1} \right) + \varepsilon^{2} \left( 2 D_{0} D_{2} X_{0} + 2 D_{1} D_{0} X_{1} + D_{1}^{2} X_{0} \right) + \cdots.
     \end{aligned}
 \end{gathered}
 $$
@@ -134,7 +134,7 @@ $$
 \begin{gather}
     x = X_{0} + \varepsilon X_{1} + \varepsilon^{2} X_{2} + \cdots, \\
     \frac{d x}{d t} = D_0 X_0 + \varepsilon \left( D_0 X_1 + D_1 X_0 \right) + \varepsilon^2 \left( D_0 X_2 + D_1 X_1 + D_2 X_0 \right) + \cdots, \\
-    \frac{d^{2} x}{d t^{2}} = D_{0}^{2} X_{0} + \varepsilon \left( 2 D_{0} D_{1} X_{0} + D_{0}^{2} X_{0} \right) + \varepsilon^{2} \left( 2 D_{0} D_{2} X_{0} + 2 D_{1} D_{0} X_{1} + D_{1}^{2} X_{0} \right) + \cdots, \\
+    \frac{d^{2} x}{d t^{2}} = D_{0}^{2} X_{0} + \varepsilon \left( 2 D_{0} D_{1} X_{0} + D_{0}^{2} X_{1} \right) + \varepsilon^{2} \left( 2 D_{0} D_{2} X_{0} + 2 D_{1} D_{0} X_{1} + D_{1}^{2} X_{0} \right) + \cdots, \\
     x (t - t_{d}) = X_{0d} + \varepsilon \left( X_{1d} - t_{d} D_{1} X_{0d} \right) + \varepsilon^{2} \left( X_{2d} - t_{d} D_{2} X_{0d} - t_{d} D_{1} X_{1d} \right) + \cdots, \\
     \begin{aligned}
         \frac{d x}{d t} (t - t_{d}) &=&& D_{0} X_{0d} + \varepsilon \left( D_{0} X_{1d} + D_{1} X_{0d} - t_{d} D_{0} D_{1} X_{0d} \right) + \varepsilon^{2} \left[ D_{0} X_{2d} + D_{1} X_{1d} \right. \\
