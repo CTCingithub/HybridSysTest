@@ -2,12 +2,14 @@
  * @Author: CTC 2801320287@qq.com
  * @Date: 2024-04-15 22:12:16
  * @LastEditors: CTC 2801320287@qq.com
- * @LastEditTime: 2024-04-27 10:56:17
+ * @LastEditTime: 2024-05-06 16:40:16
  * @Description: 
  * 
  * Copyright (c) 2024 by ${git_name_email}, All Rights Reserved. 
 -->
 # MMS for Linear System with Time-varyingly Delayed Feedback
+
+**Wrong!**
 
 ## 1. Description
 

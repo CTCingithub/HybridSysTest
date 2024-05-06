@@ -1,6 +1,6 @@
 # MMS for Linear System with Time-varyingly Delayed Feedback
 
-**Wrong**
+**Wrong!**
 
 ## 1. Description
 
