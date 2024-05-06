@@ -1,5 +1,7 @@
 # MMS for Linear System with Time-varyingly Delayed Feedback
 
+**Wrong**
+
 ## 1. Description
 
 The equation of the delay system studied is:
