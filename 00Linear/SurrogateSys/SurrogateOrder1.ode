@@ -1,0 +1,39 @@
+# Surrogate System expanded to epsilon's 2nd Order
+# Approximated to 1st Order
+
+# Epsilon
+par epsilon=0.1
+
+# PD Gains
+par kp=1, kd=0.5
+
+# Sampling Time
+par ts=0.02
+
+# Define Delayed Terms
+OmegaS=2*Pi/ts
+Omega0=sqrt(kp)/OmegaS
+mu=kd/OmegaS
+
+DelayN(n,t)=1/n*sin(n*OmegaS*t)
+
+f(t)=1/(Pi*epsilon)*(DelayN(1,t))
+
+x1d=delay(x1,3*Pi/OmegaS)
+x1dd=delay(x1,6*Pi/OmegaS)
+x2d=delay(x2,3*Pi/OmegaS)
+
+# Define Dynamics
+dx1/dt = x2
+dx2/dt = - OmegaS^2 * Omega0^2 * x1d + \
+        epsilon * OmegaS * (2 * Pi * Omega0 * f(t) - mu) * x2d - \
+        epsilon^2 * OmegaS^2 * (2 * Pi^2 * Omega0^4 * f(t)^2 - 2 * Pi * mu * Omega0^2 * f(t)) * x1dd
+
+# Delay Relevant Conditions
+x1(0)=1
+x2(0)=0
+
+@ xplot=x, yplot=v
+@ dt=0.0001, total=20
+@ delay=20
+done

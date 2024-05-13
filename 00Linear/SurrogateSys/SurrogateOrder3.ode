@@ -1,5 +1,5 @@
 # Linear System Under Digital PD Control
-# Approximated to 1st Order
+# Approximated to 3rd Order
 
 # PD Gains
 par kp=1, kd=0.5
@@ -11,7 +11,7 @@ par ts=0.02
 OmegaS=2*Pi/ts
 DelayN(n,t)=1/n*sin(n*OmegaS*t)
 
-TimeDelay(t)=ts*(1.5-1/Pi*(DelayN(1,t)))
+TimeDelay(t)=ts*(1.5-1/Pi*(DelayN(1,t)+ DelayN(2,t) + DelayN(3,t)))
 y=delay(x,TimeDelay(t))
 z=delay(v,TimeDelay(t))
 
