@@ -1,0 +1,31 @@
+# Linear System Under PD Control with Constant Delay
+
+# PD Gains
+par kp=1, kd=0.5
+
+# Sampling Time
+par ts=0.02
+
+# Define Delayed Terms
+y=delay(x,ts)
+z=delay(v,ts)
+
+# Define Input
+F=-kp*y-kd*z
+
+# Define Dynamics
+dx/dt=v
+dv/dt=F
+
+# Delayed x & v
+aux xd=y
+aux vd=z
+
+# Delay Relevant Conditions
+x(0)=1
+v(0)=0
+
+@ xplot=x, yplot=v
+@ dt=0.0001, total=20
+@ delay=10
+done
